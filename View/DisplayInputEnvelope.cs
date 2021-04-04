@@ -8,24 +8,24 @@ namespace TaskEnvelope.View
 {
     class DisplayInputEnvelope
     {
-        Display display;
-        public DisplayInputEnvelope()
+        public Display Display { get; }
+        public DisplayInputEnvelope(Display display)
         {
-            display = new Display();
+            Display = display;
         }
 
         public void GetStringForEnvelope(out string widthEnvelope1, out string heigthEnvelope1, out string widthEnvelope2, out string heigthEnvelope2)
         {
-            display.DisplayMessage("Enter width for first envelope:");
+            Display.DisplayMessage("Enter width for first envelope:");
             widthEnvelope1 = Console.ReadLine();
 
-            display.DisplayMessage("Enter heigth for first envelope:");
+            Display.DisplayMessage("Enter heigth for first envelope:");
             heigthEnvelope1 = Console.ReadLine();
 
-            display.DisplayMessage("Enter width for second envelope:");
+            Display.DisplayMessage("Enter width for second envelope:");
             widthEnvelope2 = Console.ReadLine();
 
-            display.DisplayMessage("Enter heigth for second envelope:");
+            Display.DisplayMessage("Enter heigth for second envelope:");
             heigthEnvelope2 = Console.ReadLine();
         }
     }

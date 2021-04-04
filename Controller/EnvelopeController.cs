@@ -13,20 +13,23 @@ namespace TaskEnvelope.Controller
         EnvelopeComparable envelopeComparable;
         DisplayResultComparable displayResultComparable;
         Display display;
+        DisplayToContinueProgram continueProgram;
 
         public EnvelopeController()
         {
-            displayInputEnvelope = new DisplayInputEnvelope();
+            display = new Display();
+            displayInputEnvelope = new DisplayInputEnvelope(display);
             envelopeValidator = new EnvelopeValidator();
             envelopeComparable = new EnvelopeComparable();
-            displayResultComparable = new DisplayResultComparable();
-            display = new Display();
+            displayResultComparable = new DisplayResultComparable(display);
+            continueProgram = new DisplayToContinueProgram(display);
         }
 
         public void StartAnalizeEnvelopes()
         {
             Envelope envelope1;
             Envelope envelope2;
+
 
             string widthEnvelope1, heigthEnvelope1;
             string widthEnvelope2, heigthEnvelope2;
@@ -42,13 +45,15 @@ namespace TaskEnvelope.Controller
 
                     resultComparable = envelopeComparable.Compare(envelope1, envelope2);
                     displayResultComparable.DisplayResultAfterComparable(resultComparable);
+
+                    //continueProgram.ToContinue(toContinue);
                 }
                 else
                 {
                     display.DisplayMessage("Exeption!");
                 }
 
-            } while (true);
+            } while (continueProgram.ToContinue());
         }
     }
 }

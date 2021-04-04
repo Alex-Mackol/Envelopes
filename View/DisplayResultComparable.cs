@@ -8,25 +8,25 @@ namespace TaskEnvelope.View
 {
     class DisplayResultComparable
     {
-        Display display;
-        public DisplayResultComparable()
+        public Display Display { get; }
+        public DisplayResultComparable(Display display)
         {
-            display = new Display();
+            Display = display;
         }
 
         public void DisplayResultAfterComparable(int resultComparable)
         {
             if (resultComparable == 0)
             {
-                display.DisplayMessage("Noone envelope can be invested in each other!");
+                Display.DisplayMessage("Noone envelope can be invested in each other!");
             }
             else if (resultComparable == 1)
             {
-                display.DisplayMessage("Envelope2 can be invested in envelope1!");
+                Display.DisplayMessage("Envelope2 can be invested in envelope1!");
             }
             else
             {
-                display.DisplayMessage("Envelope1 and envelope2 can be invested in each other!");
+                Display.DisplayMessage("Envelope1 and envelope2 can be invested in each other!");
             }
         }
     }

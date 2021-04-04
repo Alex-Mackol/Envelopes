@@ -12,7 +12,7 @@ namespace TaskEnvelope.View
         {
         }
 
-        public void DisplayMessage(string message)
+        public virtual void DisplayMessage(string message)
         {
             Console.WriteLine(message);
         }
